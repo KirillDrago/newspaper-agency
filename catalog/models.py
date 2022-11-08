@@ -12,7 +12,7 @@ class Topic(models.Model):
 
 class Newspaper(models.Model):
     title = models.CharField(max_length=255)
-    content = models.TextField
+    content = models.TextField(default="Some content2")
     published_date = models.DateTimeField()
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     publishers = models.ManyToManyField(settings.AUTH_USER_MODEL)
