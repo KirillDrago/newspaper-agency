@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+
+
+{% block content %}
+  <h1>News Agency Home Page</h1>
+    <ul>
+      <li>Number of redactors: {{ num_redactors }}</li>
+      <li>Number of newspapers: {{ num_newspaper }}</li>
+      <li>Number of topics {{ num_topics }}</li>
+    </ul>
+{% endblock %}
