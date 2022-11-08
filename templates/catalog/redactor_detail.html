@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>{{ redactor.first_name }} {{ redactor.last_name }}</h1>
+  <p><strong>Years of experience:</strong>{{ redactor.years_of_experience }}</p>
+  <div class="ml-3">
+    <h3>Newspapers</h3>
+    {% if redactor.newspapers %}
+    {% for newspaper in redactor.newspapers.all %}
+      <hr>
+      <ul>
+      <li><a href="{% url 'taxi:newspaper-detail' pk=redactor.id %}">{{ newspaper.title }}</a>
+
+        ({{ redactor.first_name }} {{ redactor.last_name }})
+      </li>
+      </ul>
+    {% endfor %}
+    {% else %}
+      <li>No newspapers</li>
+    {% endif %}
+  </div>
+{% endblock %}

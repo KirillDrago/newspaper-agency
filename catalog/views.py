@@ -45,4 +45,4 @@ class RedactorListView(generic.ListView):
 
 class RedactorDetailView(generic.DetailView):
     model = Redactor
-    queryset = Redactor.objects.prefetch_related("newspapers")
+    # queryset = Redactor.objects.prefetch_related("newspapers")
