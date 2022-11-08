@@ -6,7 +6,7 @@ from catalog.models import Topic, Newspaper, Redactor
 
 @admin.register(Newspaper)
 class NewspaperAdmin(admin.ModelAdmin):
-    list_display = ["title", "publishers", "published_date"]
+    list_display = ["title", "published_date"]
     search_fields = ["title"]
     list_filter = ["topic"]
 
