@@ -13,6 +13,9 @@ from catalog.views import (
     NewspaperDeleteView,
     RedactorListView,
     RedactorDetailView,
+    RedactorCreateView,
+    RedactorDeleteView,
+    RedactorExperienceUpdateView,
 )
 
 urlpatterns = [
@@ -22,6 +25,9 @@ urlpatterns = [
     path("newspapers/<int:pk>/", NewspaperDetailView.as_view(), name="newspaper-detail"),
     path("redactors/", RedactorListView.as_view(), name="redactor-list"),
     path("redactors/<int:pk>/", RedactorDetailView.as_view(), name="redactor-detail"),
+    path("redactors/create/", RedactorCreateView.as_view(), name="redactor-create"),
+    path("redactors/<int:pk>/delete/", RedactorDeleteView.as_view(), name="redactor-delete"),
+    path("redactors/<int:pk>/update/", RedactorExperienceUpdateView.as_view(), name="redactor-update"),
     path("topics/create/", TopicCreateView.as_view(), name="topic-create"),
     path("topics/<int:pk>/update/", TopicUpdateView.as_view(), name="topic-update"),
     path("topics/<int:pk>/delete/", TopicDeleteView.as_view(), name="topic-delete"),

@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
+from catalog.forms import RedactorExperienceUpdateForm, NewspaperForm, RedactorCreationForm
 from catalog.models import Redactor, Topic, Newspaper
 
 
@@ -61,14 +62,14 @@ class NewspaperDetailView(LoginRequiredMixin, generic.DetailView):
 
 class NewspaperCreateView(LoginRequiredMixin, generic.CreateView):
     model = Newspaper
-    fields = "__all__"
     success_url = reverse_lazy("catalog:newspaper-list")
+    form_class = NewspaperForm
 
 
 class NewspaperUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Newspaper
-    fields = "__all__"
     success_url = reverse_lazy("catalog:newspaper-list")
+    form_class = NewspaperForm
 
 
 class NewspaperDeleteView(LoginRequiredMixin, generic.DeleteView):
@@ -86,3 +87,19 @@ class RedactorListView(LoginRequiredMixin, generic.ListView):
 class RedactorDetailView(LoginRequiredMixin, generic.DetailView):
     model = Redactor
     queryset = Redactor.objects.prefetch_related("newspapers")
+
+
+class RedactorCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Redactor
+    form_class = RedactorCreationForm
+
+
+class RedactorDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Redactor
+    success_url = reverse_lazy("catalog:redactor-list")
+
+
+class RedactorExperienceUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Redactor
+    form_class = RedactorExperienceUpdateForm
+    success_url = reverse_lazy("catalog:redactor-list")
