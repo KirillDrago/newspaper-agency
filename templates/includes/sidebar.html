@@ -1,8 +1,8 @@
 <div class="sidebar">
   <ul>
-    <li class="list-group-item"><a href="#">Home</a></li>
-    <li class="list-group-item"><a href="#">News</a></li>
-    <li class="list-group-item"><a href="#">All redactors</a></li>
-    <li class="list-group-item"><a href="#">Topics</a></li>
+    <li class="list-group-item"><a href="{% url 'catalog:index' %}">Home</a></li>
+    <li class="list-group-item"><a href="{% url 'catalog:newspaper-list' %}">All Newspapers</a></li>
+    <li class="list-group-item"><a href="{% url 'catalog:redactor-list' %}">All redactors</a></li>
+    <li class="list-group-item"><a href="{% url 'catalog:topic-list' %}">Topics</a></li>
   </ul>
 </div>
