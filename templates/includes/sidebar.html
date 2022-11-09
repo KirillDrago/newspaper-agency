@@ -1,16 +1,6 @@
 <ul class="sidebar-nav">
-  {% if user.is_authenticated %}
-    <li>User: {{ user.username }}</li>
-    <li><a href="{% url 'logout' %}">Logout</a></li>
-    {% else %}
-    <li><a href="{% url 'login' %}">Login</a></li>
-  {% endif %}
-
-  <br>
-
   <li class="list-group-item"><a href="{% url 'catalog:index' %}">Home</a></li>
   <li class="list-group-item"><a href="{% url 'catalog:newspaper-list' %}">All Newspapers</a></li>
   <li class="list-group-item"><a href="{% url 'catalog:redactor-list' %}">All redactors</a></li>
   <li class="list-group-item"><a href="{% url 'catalog:topic-list' %}">Topics</a></li>
-
 </ul>
