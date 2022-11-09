@@ -7,11 +7,11 @@
 
   <div class="ml-3">
     <h5>Redactors</h5>
-    {% if newspaper.redactors %}
-    {% for redactor in car.redactors.all %}
+    {% if newspaper.publis %}
+    {% for redactor in newspaper.publishers.all %}
       <hr>
-      <li><a href="{% url 'taxi:redactor-detail' pk=redactor.id %}">{{ redactor.username }}</a>
-        ({{ redactor.first_name }} {{ redactor.last_name }})
+      <li><a href="{% url 'taxi:redactor-detail' pk=redactor.id %}">{{ redactor.first_name }} {{ redactor.last_name }}</a>
+
       </li>
     {% endfor %}
     {% else %}

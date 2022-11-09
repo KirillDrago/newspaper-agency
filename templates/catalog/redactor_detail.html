@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
   <h1>{{ redactor.first_name }} {{ redactor.last_name }}</h1>
-  <p><strong>Years of experience:</strong>{{ redactor.years_of_experience }}</p>
+  <p><strong>Years of experience:</strong> {{ redactor.years_of_experience }}</p>
   <div class="ml-3">
     <h3>Newspapers</h3>
     {% if redactor.newspapers %}
