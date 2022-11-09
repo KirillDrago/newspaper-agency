@@ -43,7 +43,7 @@ class TopicUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 
 class TopicDeleteView(LoginRequiredMixin, generic.DeleteView):
-    model =
+    model = Topic
     fields = "__all__"
     success_url = reverse_lazy("catalog:topic-list")
     template_name = "catalog/topic_confirm_delete.html"
