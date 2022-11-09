@@ -7,16 +7,20 @@
 
   <div class="ml-3">
     <h5>Redactors</h5>
-    {% if newspaper.publis %}
+    {% if newspaper.publishers %}
     {% for redactor in newspaper.publishers.all %}
       <hr>
-      <li><a href="{% url 'taxi:redactor-detail' pk=redactor.id %}">{{ redactor.first_name }} {{ redactor.last_name }}</a>
-
+      <li>
+        <a href="{% url 'taxi:redactor-detail' pk=redactor.id %}">{{ redactor.first_name }} {{ redactor.last_name }}</a>
       </li>
     {% endfor %}
     {% else %}
       <li>No Redactors</li>
     {% endif %}
   </div>
-
+  <br>
+  <div>
+  <a class="btn btn-primary" href="{% url "catalog:newspaper-update" pk=newspaper.pk %}">Update</a>
+  <a class="btn btn-danger" href="{% url "catalog:newspaper-delete" pk=newspaper.pk %}">Delete</a>
+  </div>
 {% endblock %}
