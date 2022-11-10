@@ -21,3 +21,10 @@ a {
     background-color: dodgerblue;
     color: black;
 }
+
+.ex {
+    width:100%;
+    display:flex;
+    justify-content:flex-end;
+    float: right;
+}
