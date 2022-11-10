@@ -1,11 +1,45 @@
 {% extends "base.html" %}
+{% load static %}
 
 
 {% block content %}
-  <h1>News Agency Home Page</h1>
-    <ul>
-      <li>Number of redactors: {{ num_redactors }}</li>
-      <li>Number of newspapers: {{ num_newspaper }}</li>
-      <li>Number of topics {{ num_topics }}</li>
-    </ul>
+  <div class="container">
+  <div class="row">
+    <div class="col-sm-3" style="scroll-margin-left: inherit">
+
+      <h5>Place for your advertisement</h5>
+      <div class="fakeimg">$$$</div>
+
+      <h3>Contact Us</h3>
+
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="https://www.linkedin.com/in/kirill-dragomiretsky-8a7036256/">LinkedIN</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://t.me/KeyReach">Telegram</a>
+        </li>
+        >
+      </ul>
+      <hr class="d-sm-none">
+    </div>
+    <div class="col-sm-9">
+      <h2>'Trump, MAGA allies threaten democracy': US President Biden hits out at Republicans</h2>
+      <h5>Dec 7, 2022</h5>
+
+      <img src="{% static 'images/obeme.jpg' %}" width="650px" height="400" alt="obeme">
+
+      <p>U.S. President Joe Biden warned Thursday night that "equality and democracy are under assault" in the U.S. as he sounded an alarm about his predecessor, Donald Trump, and "MAGA Republican" adherents, labelling them an extremist threat to the nation and its future. Aiming to reframe the November elections as part of a battle for the nation's soul - "the work of my presidency," Biden used his prime-time speech at Independence Hall in Philadelphia to argue that Trump and "Make America Great Again" allies are a challenge to nation's system of government, its standing abroad and its citizens' way of life.</p>
+      <br>
+      <h2>Russian Military Rout in Ukraine has Major Implications for the MENA Region</h2>
+      <h5>Sep 2, 2022</h5>
+      <img src="{% static 'images/ukr.jpeg' %}" width="650px" height="400" alt="ukr">
+      <p>As the Russian army continues its chaotic retreat, questions are being asked, opportunities being examined as Putin’s warrior image takes a heavy beating.</p>
+    </div>
+  </div>
+</div>
+  <div class="jumbotron text-center" style="margin-bottom:0">
+  <h3>Some Info</h3>
+  </div>
+
 {% endblock %}

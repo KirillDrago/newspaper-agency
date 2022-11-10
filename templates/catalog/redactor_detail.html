@@ -2,9 +2,9 @@
 {% block content %}
   <h1>{{ redactor.first_name }} {{ redactor.last_name }}</h1>
   <p><strong>Years of experience:</strong> {{ redactor.years_of_experience }}</p>
-  <a href="{% url 'catalog:redactor-delete' pk=redactor.id %}" class="btn btn-danger link-to-page">
+  <a href="{% url 'catalog:redactor-delete' pk=redactor.id %}" style="float: right" class="btn btn-danger link-to-page">
     Delete</a>
-  <a href="{% url 'catalog:redactor-update' pk=redactor.id %}" class="btn btn-primary link-to-page">Update experience</a>
+  <a href="{% url 'catalog:redactor-update' pk=redactor.id %}" style="float: right" class="btn btn-primary link-to-page">Update experience</a>
   <div class="ml-3">
     <h3>Newspapers</h3>
     {% if redactor.newspapers %}

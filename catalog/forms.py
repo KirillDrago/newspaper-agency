@@ -9,11 +9,14 @@ class RedactorCreationForm(UserCreationForm):
 
     class Meta:
         model = get_user_model()
-        fields = UserCreationForm.Meta.fields +(
+        fields = UserCreationForm.Meta.fields + (
             "first_name",
             "last_name",
             "years_of_experience"
         )
+
+        def get_absolute_url(self):  # new
+            return reverse("redactor-list", args=[str(self.id)])
 
 
 class RedactorExperienceUpdateForm(forms.ModelForm):
