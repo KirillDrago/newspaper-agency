@@ -3,8 +3,13 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from catalog.forms import RedactorExperienceUpdateForm, NewspaperForm, RedactorCreationForm, TopicSearchForm, \
+from catalog.forms import (
+    RedactorExperienceUpdateForm,
+    NewspaperForm,
+    RedactorCreationForm,
+    TopicSearchForm,
     NewspaperSearchForm
+    )
 from catalog.models import Redactor, Topic, Newspaper
 
 

@@ -47,7 +47,9 @@ class PublicDriverTests(TestCase):
         user = get_user_model().objects.create_user(
             username="test", password="test12345", years_of_experience=5
         )
-        res = self.client.get(reverse("catalog:redactor-detail", args=[user.id]))
+        res = self.client.get(
+            reverse("catalog:redactor-detail", args=[user.id])
+        )
 
         self.assertNotEqual(res.status_code, 200)
 
@@ -92,4 +94,6 @@ class PrivateRedactorTests(TestCase):
         self.client.post(reverse("catalog:redactor-create"), data=form_data)
         user = get_user_model().objects.get(username=form_data["username"])
 
-        self.assertEqual(user.years_of_experience, form_data["years_of_experience"])
+        self.assertEqual(
+            user.years_of_experience, form_data["years_of_experience"]
+        )
