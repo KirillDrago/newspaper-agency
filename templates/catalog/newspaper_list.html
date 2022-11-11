@@ -2,6 +2,7 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
+  <div class="ar">
   <h1>Newspapers List</h1><a href="{% url 'catalog:newspaper-create' %}" style="float: right" class="btn btn-primary link-to-page">Create</a>
 
   <form action="" method="get" class="form-inline">
@@ -34,5 +35,6 @@
   {% else %}
     <p>There are no newspapers</p>
   {% endif %}
+  </div>
 
 {% endblock %}

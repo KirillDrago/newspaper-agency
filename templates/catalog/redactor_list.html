@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <div class="ar">
   <h1>Our Redactors</h1>
   <a href="{% url 'catalog:redactor-create' %}" style="float: right" class="btn btn-primary link-to-page">
       Create
@@ -17,5 +18,5 @@
   {% else %}
     <p>There are no redactors</p>
   {% endif %}
-
+  </div>
 {% endblock %}

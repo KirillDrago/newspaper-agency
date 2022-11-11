@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+  <div class="ar">
   <h1>{{ redactor.first_name }} {{ redactor.last_name }}</h1>
   <p><strong>Years of experience:</strong> {{ redactor.years_of_experience }}</p>
   <a href="{% url 'catalog:redactor-delete' pk=redactor.id %}" style="float: right" class="btn btn-danger link-to-page">
@@ -11,7 +12,7 @@
     {% for newspaper in redactor.newspapers.all %}
       <hr>
       <ul>
-      <li><a href="{% url 'taxi:newspaper-detail' pk=redactor.id %}">{{ newspaper.title }}</a>
+      <li><a href="{% url 'catalog:newspaper-detail' pk=newspaper.id %}">{{ newspaper.title }}</a>
 
         ({{ redactor.first_name }} {{ redactor.last_name }})
       </li>
@@ -20,5 +21,6 @@
     {% else %}
       <li>No newspapers</li>
     {% endif %}
+  </div>
   </div>
 {% endblock %}

@@ -28,3 +28,10 @@ a {
     justify-content:flex-end;
     float: right;
 }
+
+.ar {
+    margin-left: 500px;
+    margin-right: 500px;
+    background-color: darkgray;
+    min-height: 100vh;
+}

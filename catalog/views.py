@@ -100,6 +100,7 @@ class NewspaperListView(LoginRequiredMixin, generic.ListView):
 
 class NewspaperDetailView(LoginRequiredMixin, generic.DetailView):
     model = Newspaper
+    success_url = reverse_lazy("catalog:newspaper-detail")
 
 
 class NewspaperCreateView(LoginRequiredMixin, generic.CreateView):

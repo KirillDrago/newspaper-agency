@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-
+  <div class="ar">
   <h1>Delete Newspaper</h1>
 
   <p>Are you sure you want to delete the newspaper: {{ newspaper.title }}?</p>
@@ -10,5 +10,5 @@
     <input type="submit" value="Yes, delete" class="btn btn-danger">
     <a href="{% url 'catalog:newspaper-list' %}" class="btn btn-secondary">No, thanks</a>
   </form>
-
+  </div>
 {% endblock %}
