@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+  <div class="ar">
   <h1>Login</h1>
 
   {% if form.errors %}
@@ -12,4 +13,5 @@
     {{ form.as_p }}
   <input type="submit" value="Login">
   </form>
+  </div>
 {% endblock %}
