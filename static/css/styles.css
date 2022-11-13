@@ -1,0 +1,37 @@
+.container {
+    margin-top: 30px;
+}
+
+.fakeimg {
+    height: 200px;
+    background: #aaa;
+  }
+
+.col-sm-9 {
+    background-color: darkgray;
+}
+
+a {
+  font-weight: bold;
+  text-decoration: none;
+  padding: 2px 1px 0;
+}
+
+.btn-primary  {
+    background-color: dodgerblue;
+    color: black;
+}
+
+.ex {
+    width:100%;
+    display:flex;
+    justify-content:flex-end;
+    float: right;
+}
+
+.ar {
+    margin-left: 500px;
+    margin-right: 500px;
+    background-color: darkgray;
+    min-height: 100vh;
+}

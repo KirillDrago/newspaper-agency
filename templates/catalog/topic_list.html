@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <div class="ar">
+  <h1>Topics List</h1>
+  <a class="btn btn-primary" style="float: right"  href="{% url 'catalog:topic-create' %}">Add New Topic</a>
+
+  <form action="" method="get" class="form-inline">
+    {{ search_form|crispy }}
+      <input type="submit" class="btn btn-secondary" value="🔎">
+  </form>
+
+  {% if topic_list %}
+    <ul>
+      {% for topic in topic_list %}
+        <li><strong>{{ topic.name }}</strong></li>
+        <a class="btn btn-primary" href="{% url 'catalog:topic-update' pk=topic.pk %}">Update</a>
+    <a class="btn btn-danger" href="{% url 'catalog:topic-delete' pk=topic.pk %}">Delete</a>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no topics</p>
+
+  {% endif %}
+
+  </div>
+{% endblock %}
