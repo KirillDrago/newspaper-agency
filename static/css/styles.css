@@ -8,7 +8,7 @@
   }
 
 .col-sm-9 {
-    background-color: darkgray;
+    background-color: wheat;
 }
 
 a {
@@ -32,6 +32,8 @@ a {
 .ar {
     margin-left: 500px;
     margin-right: 500px;
-    background-color: darkgray;
+    background-color: wheat;
     min-height: 100vh;
+    padding-left: 50px;
+    padding-right: 50px;
 }
