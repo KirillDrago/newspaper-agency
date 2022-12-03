@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-  <div class="ar">
+  <div class="ar" style="font-size: larger">
   <h1>{{ redactor.first_name }} {{ redactor.last_name }}</h1>
   <p><strong>Years of experience:</strong> {{ redactor.years_of_experience }}</p>
   <a href="{% url 'catalog:redactor-delete' pk=redactor.id %}" style="float: right" class="btn btn-danger link-to-page">

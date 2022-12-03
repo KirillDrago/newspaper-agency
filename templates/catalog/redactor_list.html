@@ -7,16 +7,30 @@
       Create
   </a>
   {% if redactor_list %}
-    <ul>
+    <table class="table" style="font-size: larger">
+    <tr>
+          <th>Full name</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Years of experience</th>
+    </tr>
       {% for redactor in redactor_list %}
-        <li>
+        <tr>
+        <td>
           <a href="{% url 'catalog:redactor-detail' pk=redactor.id %}"> {{ redactor.first_name }} {{ redactor.last_name }}</a>
           {% if redactor.id == user.id %}(Me){% endif %}
-        </li>
+        </td>
+        <td>{{ redactor.username }}</td>
+        <td>{{ redactor.email }}</td>
+        <td>{{ redactor.years_of_experience }}</td>
+        </tr>
       {% endfor %}
-    </ul>
+     </table>
   {% else %}
     <p>There are no redactors</p>
   {% endif %}
+  {% block pagination %}
+    {% include "includes/pagination.html" %}
+  {% endblock %}
   </div>
 {% endblock %}

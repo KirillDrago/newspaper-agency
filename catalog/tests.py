@@ -3,8 +3,10 @@ from django.test import TestCase
 from django.urls import reverse
 
 from catalog.forms import RedactorCreationForm, RedactorExperienceUpdateForm
-from catalog.models import Topic
+from catalog.models import Topic, Redactor, Newspaper
 
+REDACTOR_CREATE_URL = reverse("catalog:redactor-create")
+REDACTOR_LIST_URL = reverse("catalog:redactor-list")
 
 class FormsTests(TestCase):
     def test_redactor_creation_form(self):
@@ -39,7 +41,7 @@ class TopicModelTest(TestCase):
 
 class PublicDriverTests(TestCase):
     def test_login_required_redactor_list(self):
-        res = self.client.get(reverse("catalog:redactor-list"))
+        res = self.client.get(REDACTOR_LIST_URL)
 
         self.assertNotEqual(res.status_code, 200)
 
@@ -66,13 +68,13 @@ class PrivateRedactorTests(TestCase):
             username="IVAN", password="qwerty123", years_of_experience=6
         )
         redactors = get_user_model().objects.all()
-        res = self.client.get(reverse("catalog:redactor-list"))
+        res = self.client.get(REDACTOR_LIST_URL)
 
         self.assertEqual(res.status_code, 200)
         self.assertEqual(list(res.context["redactor_list"]), list(redactors))
         self.assertTemplateUsed(res, "catalog/redactor_list.html")
 
-    def test_driver_detail(self):
+    def test_redactor_detail(self):
         res = self.client.get(reverse(
             "catalog:redactor-detail",
             args=[self.user.id])
@@ -91,9 +93,27 @@ class PrivateRedactorTests(TestCase):
             "last_name": "Drago",
             "years_of_experience": 3,
         }
-        self.client.post(reverse("catalog:redactor-create"), data=form_data)
+        self.client.post(REDACTOR_CREATE_URL, data=form_data)
         user = get_user_model().objects.get(username=form_data["username"])
 
         self.assertEqual(
             user.years_of_experience, form_data["years_of_experience"]
+        )
+
+
+class SearchTests(TestCase):
+    def test_newspaper_search(self):
+        response = self.client.get("/newspapers/?title=ukr")
+        self.assertEqual(response.status_code, 200)
+        self.assertQuerysetEqual(
+            response.context["newspaper_list"],
+            Newspaper.objects.filter(title__icontains="ukr")
+        )
+
+    def test_topic_search(self):
+        response = self.client.get("/topics/?name=media")
+        self.assertEqual(response.status_code, 200)
+        self.assertQuerysetEqual(
+            response.context["topic_list"],
+            Topic.objects.filter(name__icontains="media")
         )

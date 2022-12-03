@@ -1,15 +1,8 @@
 .container {
-    margin-top: 30px;
+    display: flex;
+
 }
 
-.fakeimg {
-    height: 200px;
-    background: #aaa;
-  }
-
-.col-sm-9 {
-    background-color: wheat;
-}
 
 a {
   font-weight: bold;
@@ -25,15 +18,35 @@ a {
 .ex {
     width:100%;
     display:flex;
-    justify-content:flex-end;
+    justify-content:space-between;
     float: right;
 }
 
 .ar {
-    margin-left: 500px;
-    margin-right: 500px;
+    display: block;
+    margin-left: 10%;
+    margin-right: 10%;
     background-color: wheat;
     min-height: 100vh;
-    padding-left: 50px;
-    padding-right: 50px;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.footer {
+    margin-bottom: 0;
+    background-color: #343a40;
+    height: 50px;
+    color: #aaaaaa;
+}
+
+.r {
+    display: block;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: wheat;
+    min-height: 100vh;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 20px;
 }

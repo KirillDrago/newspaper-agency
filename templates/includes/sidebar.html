@@ -21,10 +21,11 @@
   </div>
   <div style="float: right">
     {% if user.is_authenticated %}
-    <li>User: {{ user.username }}</li>
-    <li><a href="{% url 'logout' %}">Logout</a></li>
+    <a style="color: #007bff">User: {{ user.username }}</a>
+      <br>
+    <a href="{% url 'logout' %}">Logout</a>
     {% else %}
-    <li><a href="{% url 'login' %}">Login</a></li>
+    <a href="{% url 'login' %}">Login</a>
   {% endif %}
   </div>
 </nav>

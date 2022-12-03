@@ -11,7 +11,7 @@
   </form>
 
   {% if newspaper_list %}
-    <table class="table">
+    <table class="table" style="font-size: larger">
         <tr>
           <th>Title</th>
           <th>Topic</th>
@@ -35,6 +35,9 @@
   {% else %}
     <p>There are no newspapers</p>
   {% endif %}
+  {% block pagination %}
+    {% include "includes/pagination.html" %}
+  {% endblock %}
   </div>
 
 {% endblock %}

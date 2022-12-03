@@ -12,17 +12,22 @@
   </form>
 
   {% if topic_list %}
-    <ul>
+    <table class="table">
       {% for topic in topic_list %}
-        <li><strong>{{ topic.name }}</strong></li>
-        <a class="btn btn-primary" href="{% url 'catalog:topic-update' pk=topic.pk %}">Update</a>
-    <a class="btn btn-danger" href="{% url 'catalog:topic-delete' pk=topic.pk %}">Delete</a>
+        <tr><td>
+          <strong style="font-size: x-large">{{ topic.name }}</strong>
+        <a class="btn btn-primary" href="{% url 'catalog:topic-update' pk=topic.pk %}" style="float: right">Update</a>
+    <a class="btn btn-danger" href="{% url 'catalog:topic-delete' pk=topic.pk %}" style="float: right">Delete</a>
+        </td></tr>
       {% endfor %}
-    </ul>
+    </table>
   {% else %}
     <p>There are no topics</p>
 
   {% endif %}
+  {% block pagination %}
+    {% include "includes/pagination.html" %}
+  {% endblock %}
 
   </div>
 {% endblock %}
