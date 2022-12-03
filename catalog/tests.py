@@ -117,3 +117,20 @@ class SearchTests(TestCase):
             response.context["topic_list"],
             Topic.objects.filter(name__icontains="media")
         )
+
+
+class ValidYearsOfExperience(TestCase):
+    @staticmethod
+    def create_form(test_experience):
+        return RedactorExperienceUpdateForm(
+            data={"years_of_experience": test_experience}
+        )
+
+    def test_validation_experience_should_be_positive(self):
+        self.assertFalse(self.create_form(-10).is_valid())
+
+    def test_validation_experience_should_be_lower_than_99(self):
+        self.assertFalse(self.create_form(101).is_valid())
+
+    def test_validation_experience_with_valid_data(self):
+        self.assertTrue(self.create_form(20).is_valid())

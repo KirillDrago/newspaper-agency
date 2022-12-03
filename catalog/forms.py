@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
+from django.core.exceptions import ValidationError
 from django.urls import reverse
 
 from catalog.models import Newspaper, Redactor
@@ -25,6 +26,17 @@ class RedactorExperienceUpdateForm(forms.ModelForm):
     class Meta:
         model = Redactor
         fields = ("years_of_experience",)
+
+    def clean_years_of_experience(self):
+        years_of_experience = self.cleaned_data["years_of_experience"]
+
+        if 0 > years_of_experience:
+            raise ValidationError("Experience must be positive")
+
+        if years_of_experience > 99:
+            raise ValidationError("Incorrect data")
+
+        return years_of_experience
 
 
 class NewspaperForm(forms.ModelForm):
